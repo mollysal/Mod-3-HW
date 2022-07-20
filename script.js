@@ -2,6 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+//this spits out the PW for you
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -23,7 +24,7 @@ function generatePassword() {
   //I need to use promts() to gather PW Criteria
 
   //var passwordLength = promt("How many charcters would you like in your PW?")
-  var passwordLength = promt("How many characters would you like in your password?");
+  var passwordLength = prompt("How many characters would you like in your password?");
 
   //if(passwordLength < 8) stop function
   //if(passwordLenth > 128) stop functin
@@ -37,7 +38,7 @@ function generatePassword() {
   //confirm() for special characters
   //confirm() for numeric characters
   var useUpperCase = confirm("Do you want upper case characters?");
-  var useLowerCase = confrim("Do you want lowercase characters?");
+  var useLowerCase = confirm("Do you want lowercase characters?");
   var useSpecialChar = confirm("Do you want special characters?");
   var useNumericalChar = confirm("Do you want numerical numbers?");
 
@@ -49,17 +50,40 @@ function generatePassword() {
     return;
   }
   //if a confirm is true then concat related list to selected characters array
+  //array compounds based off of if statements below
+  if(useUpperCase) {
+    selectedCharacters = selectedCharacters.concat(upppercaseCharacters);
+  } 
+
+  if(useLowerCase) {
+    selectedCharacters = selectedCharacters.concat(lowercaseCharacters);
+  }
+
+  if(useSpecialChar) {
+    selectedCharacters = selectedCharacters.concat(specialCharaacters);
+  }
+
+  if(useNumericalChar) {
+    selectedCharacters = selectedCharacters.concat(numericCharacters);
+  }
   //we DO NOT have to worry about how of each of the uppercase, lower, spec char, etc. 
   //now we have an array of all selected char. i.e var selectedCharacters ['A', 'B', 'C', a, b, c, 1, 2, 3, %]
-    // if(isuppercase) {
-    //   selectedCharacters.concat(upppercaseCharacters);
-    // }
  
   //for loop based on pw length
   //use math.floor(Math.random() * selectedCharacters.Lenth) to get random index of selectedCharacters
+  //i needs to increase each time to become the password length as soon as pw length > pw length selected it will stop running
+  var password = "";
+  console.log(selectedCharacters);
 
+  for (var i=0; i <= passwordLength; i++) {
+    //below spits out a number
+    var index = Math.floor(Math.random()* selectedCharacters.length);
+    var randomChar = selectedCharacters[index];
+    //we want to insert randomChar into password (re-assigning pw)
+    password = password + randomChar;
+  }
   //return the passord text (how we end the function)
-
+  return password;
 }
 
 
