@@ -14,6 +14,7 @@ Lessons Learned:
 ## Usage
 
 Use this application to generate a random password. To start the password generator, select the blue generate password button. 
+
 ![Website Image](/Assets/Password-Generator.png)
 
 It will only generate passwords must be between 8-128 characters. 
@@ -23,6 +24,7 @@ The user must select at least one of the following: uppercase characters, lowerc
 ![Website Image](/Assets/Select-Characters.png)
 
 Once the user completes their selections, the password will generate. 
+
 ![Website Image](/Assets/Completed-PW.png)
 
 ## Credits
