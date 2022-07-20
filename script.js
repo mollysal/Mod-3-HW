@@ -24,12 +24,12 @@ function generatePassword() {
   //I need to use promts() to gather PW Criteria
 
   //var passwordLength = promt("How many charcters would you like in your PW?")
-  var passwordLength = prompt("How many characters would you like in your password?");
+  var passwordLength = prompt("How many characters would you like in your password? Enter a number between 8 & 128.");
 
   //if(passwordLength < 8) stop function
   //if(passwordLenth > 128) stop functin
   if(passwordLength < 8 || passwordLength > 128) {
-    return;
+    return "You must enter a number between 8 and 128. Please try again.";
   } 
 
   //confirm() returns a  boolean true/false 
@@ -47,10 +47,10 @@ function generatePassword() {
   //if no confirm is true stop function
   if(!useUpperCase && !useLowerCase && !useSpecialChar && !useNumericalChar) {
     alert("you must pick at least one character type.");
-    return;
+    return "You must pick at least one character type. Please try again.";
   }
   //if a confirm is true then concat related list to selected characters array
-  //array compounds based off of if statements below
+  //array compounds based off of if statements below so we want to re-assign it to the original variable, selectedCharacters
   if(useUpperCase) {
     selectedCharacters = selectedCharacters.concat(upppercaseCharacters);
   } 
